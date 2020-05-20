@@ -118,7 +118,7 @@ SET budget = 9530.00
 WHERE id = 10003
 
 --Consultar:
---username e password da AnaSELECT	username,		passwordUserFROM	UsersWHERE	nameUser LIKE 'Ana'--nome, budget e valor hipotético de um budget 25% maiorSELECT	nameProject,		budget,		CONVERT(DECIMAL(7,2), budget*1.25) as '25% maior'FROM	Projects
+--username e password da AnaSELECT	username,		passwordUserFROM	UsersWHERE	nameUser LIKE 'Ana'--nome, budget e valor hipotético de um budget 25% maiorSELECT	nameProject,		budget,		CONVERT(DECIMAL(7,2), budget*1.25) as '25% maior'FROM	Projects
 --id, nome e e-mail do usuário que ainda mantém o password padrão (123mudar)
 SELECT	id,		nameUser,		emailFROM	UsersWHERE	passwordUser = '123mudar'
 
