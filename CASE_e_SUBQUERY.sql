@@ -16,17 +16,6 @@ WHERE nome = 'Modificação do Módulo de Cadastro'))
 --aniversário esse ano), dos funcionários
 
 SELECT nome+' '+sobrenome AS nome_completo,
-		CASE WHEN (MONTH(data_nasc)>=MONTH(GETDATE())) THEN
-			CASE WHEN (MONTH(data_nasc)=MONTH(GETDATE())) THEN 
-				CASE WHEN (DAY(data_nasc)>DAY(GETDATE())) THEN
-					YEAR(GETDATE())-YEAR(data_nasc)-1
-				ELSE
-					YEAR(GETDATE())-YEAR(data_nasc)
-				END
-			ELSE
-				YEAR(GETDATE())-YEAR(data_nasc)-1
-			END
-		ELSE 
-			YEAR(GETDATE())-YEAR(data_nasc)
-		END AS idade
+		FLOOR(DATEDIFF(DAY, data_nasc, GETDATE()) / 365.25) AS idade
 FROM funcionario
+
