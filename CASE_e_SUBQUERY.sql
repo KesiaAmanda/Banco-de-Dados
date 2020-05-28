@@ -7,10 +7,9 @@ WHERE id IN (
 SELECT id_funcionario
 FROM funcproj
 WHERE codigo_projeto IN
-(SELECT DISTINCT codigo
+(SELECT codigo
 FROM projeto
 WHERE nome = 'Modificação do Módulo de Cadastro'))
-
 
 --Nomes completos e Idade, em anos (considere se fez ou ainda fará
 --aniversário esse ano), dos funcionários
