@@ -1,18 +1,21 @@
 USE Projetos
 
 --a) Adicionar User
---		(6; Joao; Ti_joao; 123mudar; joao@empresa.com)
+--(6; Joao; Ti_joao; 123mudar; joao@empresa.com)
+
 INSERT INTO Users (nameUser, username, passwordUser, email) VALUES 
 ('Joao', 'Ti_joao', '123mudar', 'joao@empresa.com')
 
+
 --b) Adicionar Project
---		(10004; AtualizaÁ„o de Sistemas; ModificaÁ„o de Sistemas Operacionais nos PC's; 12/09/2014)
+--(10004; Atualiza√ß√£o de Sistemas; Modifica√ß√£o de Sistemas Operacionais nos PC's; 12/09/2014)
 
 INSERT INTO Projects (nameProject, descriptionProject, dateProject) VALUES
-('AtualizaÁ„o de Sistemas', 'ModificaÁ„o de Sistemas Operacionais nos PCs', '12/09/2014')
+('Atualiza√ß√£o de Sistemas', 'Modifica√ß√£o de Sistemas Operacionais nos PCs', '12/09/2014')
+
 
 --c) Consultar:
---1) Id, Name e Email de Users, Id, Name, Description e Data de Projects, dos usu·rios que
+--1) Id, Name e Email de Users, Id, Name, Description e Data de Projects, dos usu√°rios que
 --participaram do projeto Name Re-folha
 
 SELECT u.id, u.nameUser, u.email, p.id, p.descriptionProject, p.dateProject 
@@ -23,7 +26,7 @@ ON u.id = up.users_id
 WHERE p.nameProject LIKE '%Re-folha%' 
 
 
---2) Name dos Projects que n„o tem Users
+--2) Name dos Projects que n√£o tem Users
 
 SELECT p.nameProject
 FROM Projects p LEFT OUTER JOIN Users_Has_Projects up
@@ -31,7 +34,7 @@ ON p.id = up.projects_id
 WHERE up.projects_id IS NULL
 
 
---3) Name dos Users que n„o tem Projects 
+--3) Name dos Users que n√£o tem Projects 
 
 SELECT u.nameUser
 FROM Users u LEFT OUTER JOIN Users_Has_Projects up
