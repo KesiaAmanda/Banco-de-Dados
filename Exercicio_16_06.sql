@@ -7,7 +7,7 @@ cod			INT				IDENTITY(1001,1),
 nome		VARCHAR(100)	NULL,
 logradouro	VARCHAR(100)	NULL,
 numero		INT				NULL,
-telefone	VARCHAR(9)			NULL
+telefone	VARCHAR(9)		NULL
 PRIMARY KEY (cod)
 )
 
@@ -99,7 +99,7 @@ ON e.cod_cli = c.cod
 
 -- Fazer uma consulta que retorne Nome do autor e Quantos livros foram escritos por Cada autor, ordenado pelo número de livros. Se o nome do autor tiver mais de 25 caracteres, mostrar só os 13 primeiros.
 SELECT	CASE WHEN (LEN(a.nome) > 25) THEN
-			SUBSTRING(a.nome,1,13)
+			SUBSTRING(a.nome,1,13)+'.'
 		ELSE
 			a.nome
 		END AS nome,
@@ -201,4 +201,4 @@ ON c.cod = m.cod_cli
 INNER JOIN livro l
 ON l.cod = m.cod_livro
 GROUP BY c.nome, l.nome, m.dataEmp
-HAVING DATEDIFF(DAY, m.dataEmp, '18/05/2012') > 7
+HAVING DATEDIFF(DAY, m.dataEmp, '18/05/2012') >= 7
